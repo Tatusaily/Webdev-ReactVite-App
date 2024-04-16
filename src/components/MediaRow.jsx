@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import Button from './UI/Button';
 
 const MediaRow = (props) => {
     const {item, setSelectedItem} = props;
@@ -16,7 +17,7 @@ const MediaRow = (props) => {
             <td>{item.filesize}</td>
             <td>{item.media_type}</td>
             <td>
-                <button onClick={handleclick}>Show</button>
+                <Button text="View" handleclick={handleclick} />
             </td>
         </tr>
     );

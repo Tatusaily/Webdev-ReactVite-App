@@ -78,8 +78,8 @@ td a {
   border: none;
   padding: 0.5rem;
 }
-
-/* media item dialog */
+/*
+/* media item dialog
 dialog {
   position: fixed;
   top: 5%;
@@ -88,12 +88,13 @@ dialog {
   z-index: 9999;
   color: rgba(255, 255, 255, 0.87);
 }
-
+/*
 dialog img,
 video {
   height: 70%;
   object-fit: contain;
 }
+*/
 
 /* single view */
 img,
@@ -137,6 +138,7 @@ form textarea {
   border-radius: 5px;
 }
 
+/*
 button {
   margin: 10px 0;
   padding: 10px;
@@ -146,3 +148,4 @@ button {
   border: none;
   cursor: pointer;
 }
+*/
