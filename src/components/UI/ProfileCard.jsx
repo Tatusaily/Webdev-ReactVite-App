@@ -22,9 +22,10 @@ const ProfileCard = (props) => {
 const getRandomImage = async () => {
     console.log("Fetching image...");
     const url = "https://randomuser.me/api";
-    const response = await fetch(url);
-    const data = await response.json();
-    return data.results[0].picture.medium;
+    const data = await fetch(url).then((response) => response.json());
+    const image = data.results[0].picture.medium;
+    console.log("Image fetched!", image);
+    return image;
 };
 
 ProfileCard.propTypes = {

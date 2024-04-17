@@ -1,6 +1,6 @@
 import { Outlet, Link } from "react-router-dom";
 
-const Layout = () => {
+const Layout = () => (
     <div>
         <header>
             <nav>
@@ -17,6 +17,6 @@ const Layout = () => {
         <footer>
         </footer>
     </div>
-};
+);
 
 export default Layout;
