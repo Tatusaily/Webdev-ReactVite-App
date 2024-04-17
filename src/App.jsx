@@ -1,10 +1,10 @@
 import './App.css';
-import Home from './components/Home';
+import Home from './views/Home';
 import {Route, BrowserRouter as Router, Routes } from 'react-router-dom';
-import { Profile } from './components/Profile';
-import  Upload from './components/Upload';
+import { Profile } from './views/Profile';
+import  Upload from './views/Upload';
 import Layout from './components/Layout';
-import Single from './components/Single';
+import Single from './views/Single';
 
 const App = () => {
   return (
