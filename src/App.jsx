@@ -14,7 +14,7 @@ const App = () => {
           <Route index element={<Home />} />
           <Route path="profile" element={<Profile />} />
           <Route path="upload" element={<Upload />} />
-          <Route path="media/:id" element={<Single />} />
+          <Route path="single/" element={<Single />} />
         </Route>
       </Routes>
     </Router>
