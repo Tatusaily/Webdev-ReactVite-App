@@ -30,7 +30,7 @@ const Home = () => {
       media_id: 17,
       user_id: 2,
       filename:
-        'http://distribution.bbb3d.renderfarming.net/video/mp4/bbb_sunflower_1080p_60fps_normal.mp4',
+        'bunnyvideo.mp4',
       thumbnail: 'http://place-hold.it/320/240.jpg&text=Thumb1&fontsize=20',
       filesize: 1236616,
       media_type: 'video/mp4',
