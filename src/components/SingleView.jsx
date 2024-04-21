@@ -7,7 +7,9 @@ const {item} = props;
 return (
     <>
         <dialog
-            className=" w-11/12 md:w-1/2 bg-zinc-900 text-white p-4 rounded-lg shadow-lg fixed top-10 bg-opacity-90"
+            className=" w-11/12 md:w-1/2
+             bg-zinc-900 text-red-700
+             rounded-lg shadow-lg fixed top-10 bg-opacity-90"
             open={item ? true : false}>
             <p>
                 <Button text="Close" handleclick={() => props.setSelectedItem(null)} />

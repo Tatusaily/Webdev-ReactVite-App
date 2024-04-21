@@ -8,7 +8,7 @@ const Single = () => {
     return(
         <>
         <dialog
-            className=" w-11/12 md:w-1/2 bg-zinc-900 text-white p-4 rounded-lg shadow-lg fixed top-10 bg-opacity-90"
+            className=" w-11/12 md:w-1/2 bg-zinc-900 text-white p-10 rounded-lg shadow-lg fixed top-10 bg-opacity-90"
             open={item ? true : false}>
             <p>
                 <button onClick={() => navigate(-1)}>Go back</button>

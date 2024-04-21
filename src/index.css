@@ -42,6 +42,17 @@ nav a {
   text-decoration: none;
 }
 
+footer {
+  position: absolute;
+  bottom: 0;
+  height: 2.5rem;
+  background-color: #333333;
+  color: white;
+  text-align: center;
+  padding: 0.5rem;
+  
+}
+
 nav a:hover {
   background-color: #111111;
 }
