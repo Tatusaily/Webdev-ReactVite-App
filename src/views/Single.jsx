@@ -1,20 +1,19 @@
-import PropTypes from 'prop-types';
-import Button from './UI/Button';
+import { useNavigate, useLocation, } from "react-router-dom"
 
+const Single = () => {
+    const {state} = useLocation();
+    const item = state.item;
+    const navigate = useNavigate();
 
-const SingleView = (props) => {
-const {item} = props;
-return (
-    <>
+    return(
+        <>
         <dialog
-            className=" w-11/12 md:w-1/2
-             bg-zinc-900 text-red-700
-             rounded-lg shadow-lg fixed top-10 bg-opacity-90"
+            className=" w-11/12 md:w-1/2 bg-zinc-900 text-white p-10 rounded-lg shadow-lg fixed top-10 bg-opacity-90"
             open={item ? true : false}>
             <p>
-                <Button text="Close" handleclick={() => props.setSelectedItem(null)} />
+                <button onClick={() => navigate(-1)}>Go back</button>
             </p>
-            {item && (
+            {item && (  
                 <>
                 { item.media_type.includes('video') ? (
                 <video
@@ -38,11 +37,7 @@ return (
             )}
         </dialog>
     </>
-    );
-};
-SingleView.propTypes = {
-    item: PropTypes.object,
-    setSelectedItem: PropTypes.func.isRequired,
-};
+    )
+}
 
-export default SingleView;
+export default Single;
