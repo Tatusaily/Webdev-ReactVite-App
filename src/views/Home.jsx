@@ -1,6 +1,6 @@
 import {useEffect, useState} from 'react';
 import MediaRow from '../components/MediaRow';
-import {fetchData} from '../lib/fetchData';
+import {fetchData} from '../lib/fetchdata';
 
 const Home = () => {
   const [mediaArray, setMediaArray] = useState([]);
