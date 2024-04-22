@@ -1,8 +1,7 @@
-// TODO: add necessary imports
 import {useEffect, useState} from 'react';
 import {fetchData} from '../lib/fetchdata';
 
-const useMedia = async () => {
+const useMedia = () => {
     const [mediaArray, setMediaArray] = useState([]);
 
     const getMedia = async () => {
@@ -29,7 +28,7 @@ const useMedia = async () => {
 };
 
 const useAuthentication = () => {
-    const login = async (inputs) => {
+    const postlogin = async (inputs) => {
         const options = {
             method: 'POST',
             headers: {
