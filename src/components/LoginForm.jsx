@@ -12,6 +12,7 @@ const LoginForm = () => {
     const doLogin = async () => {
         console.log(inputs);
         const result = await postlogin(inputs);
+        localStorage.setItem("token", result.token);
         console.log(result);
     };
 

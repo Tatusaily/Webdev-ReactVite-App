@@ -1,6 +1,13 @@
 import {useEffect, useState} from 'react';
 import {fetchData} from '../lib/fetchdata';
 
+
+const useUser = () => {
+    getUserByToken = async (token) => {
+        const url = import.meta.env.VITE_AUTH_API + '/users/token/' + token;
+        return fetchData(url);
+};
+
 const useMedia = () => {
     const [mediaArray, setMediaArray] = useState([]);
 
@@ -29,6 +36,7 @@ const useMedia = () => {
 
 const useAuthentication = () => {
     const postlogin = async (inputs) => {
+        console.log("creds:", inputs.username, inputs.password);
         const options = {
             method: 'POST',
             headers: {
