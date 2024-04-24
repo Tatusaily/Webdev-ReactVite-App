@@ -2,20 +2,20 @@ import { useAuthentication } from "../hooks/apiHooks";
 import useForm from "../hooks/formHooks";
 
 const LoginForm = () => {
-    const {login} = useAuthentication();
+    const {postlogin} = useAuthentication();
 
     const initvals = {
         username: "",
         password: "",
     };
 
-    const logins = async () => {
+    const doLogin = async () => {
         console.log(inputs);
-        const result = await login(inputs);
+        const result = await postlogin(inputs);
         console.log(result);
     };
 
-    const {handleSubmit, handleInputChange, inputs} = useForm(login, initvals);
+    const {handleSubmit, handleInputChange, inputs} = useForm(doLogin, initvals);
 
     console.log(inputs);
 
@@ -25,7 +25,7 @@ const LoginForm = () => {
             <form onSubmit={handleSubmit}>
                  <div>
                      <label htmlFor="loginuser">Username</label>
-                    <input
+                    <input className="text-black"
                         name="username"
                         type="text"
                         id="loginuser"
@@ -35,7 +35,7 @@ const LoginForm = () => {
                 </div>
                 <div>
                     <label htmlFor="loginpassword">Password</label>
-                     <input
+                     <input className="text-black"
                         name="password"
                         type="password"
                         id="loginpassword"
