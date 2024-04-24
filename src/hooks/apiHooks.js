@@ -3,9 +3,17 @@ import {fetchData} from '../lib/fetchdata';
 
 
 const useUser = () => {
-    getUserByToken = async (token) => {
-        const url = import.meta.env.VITE_AUTH_API + '/users/token/' + token;
-        return fetchData(url);
+    const getUserByToken = async (token) => {
+        const options = {
+            headers: {
+                Authorization: 'Bearer ' + token,
+            },
+        };
+        const url = import.meta.env.VITE_AUTH_API + '/users/token';
+        const result = await fetchData(url, options);
+        return result;
+    };
+    return {getUserByToken};
 };
 
 const useMedia = () => {
@@ -54,4 +62,4 @@ const useAuthentication = () => {
     return {postlogin};
 };
     
-    export {useMedia, useAuthentication};
+    export {useMedia, useAuthentication, useUser};

@@ -1,3 +1,4 @@
+import { Navigate } from "react-router-dom";
 import { useAuthentication } from "../hooks/apiHooks";
 import useForm from "../hooks/formHooks";
 
@@ -13,7 +14,12 @@ const LoginForm = () => {
         console.log(inputs);
         const result = await postlogin(inputs);
         localStorage.setItem("token", result.token);
-        console.log(result);
+        console.log("RESULT", result)
+        console.log("TOKEN:", result.token);
+        if (result) {
+            // ei toimi
+            return <Navigate to="/" />;
+        }
     };
 
     const {handleSubmit, handleInputChange, inputs} = useForm(doLogin, initvals);

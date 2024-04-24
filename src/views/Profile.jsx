@@ -1,11 +1,39 @@
-import ProfileCard from "../components/UI/ProfileCard";
+import {useUser} from "../hooks/apiHooks";
+import {useState, useEffect} from "react";
 
-export const Profile = () => {
+const Profile = () => {
+    const {getUserByToken} = useUser();
+    const [user, setUser] = useState(null);
+
+    const getUser = async () => {
+        try {
+            const token = localStorage.getItem("token");
+            const user = await getUserByToken(token);
+            setUser(user.user);
+        } catch (e) {
+            console.error(e.message);
+        }
+    };
+
+    useEffect(() => {
+        getUser();
+    }, []);
+
     return (
-        <div id="Profile" className="flex">
-            <ProfileCard name="John Doe" />
-            <ProfileCard name="Jane Doe" />
-            
+        <>
+        <div className="bg-slate-600 p-4 rounded-xl m-2">
+            {user && (
+                <>
+                <h1>Profile</h1>
+                <p>Username: {user.username}</p>
+                <p>Email: {user.email}</p>
+                <p>Created: {user.created_at}</p>
+                <p>Level: {user.level_name}</p>
+                </>
+            )}
         </div>
+        </>
     );
 };
+
+export default Profile;

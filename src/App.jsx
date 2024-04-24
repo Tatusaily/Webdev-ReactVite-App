@@ -1,8 +1,8 @@
 import '/src/App.css';
 import Home from './views/Home';
 import {Route, BrowserRouter as Router, Routes } from 'react-router-dom';
-import { Profile } from './views/Profile';
-import  Upload from './views/Upload';
+import Profile from './views/Profile';
+import Upload from './views/Upload';
 import Layout from './components/Layout';
 import Single from './views/Single';
 import Login from './views/Login';
