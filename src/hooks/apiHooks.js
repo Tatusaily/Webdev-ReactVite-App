@@ -12,7 +12,7 @@ const useMedia = () => {
         const mediaWithUser = await Promise.all(
             mediaResult.map(async (mediaItem) => {
                 const userResult = await fetchData(
-                import.meta.env.VITE_AUTH_API + '/users/' + mediaItem.user_id,);
+                import.meta.env.VITE_AUTH_API + '/users/' + mediaItem.user_id);
                 return {...mediaItem, user: userResult.username};
             }),
         );
@@ -43,6 +43,7 @@ const useAuthentication = () => {
         );
         return result;
     }
+    return {postlogin};
 };
     
     export {useMedia, useAuthentication};

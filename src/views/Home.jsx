@@ -4,8 +4,7 @@ import { useMedia } from '../hooks/apiHooks';
 const Home = () => {
   
   // EI OOTA:
-  const mediaArray = useMedia();
-  console.log("undefined:", mediaArray);
+  const {mediaArray} = useMedia();
 
   return (
     <>
