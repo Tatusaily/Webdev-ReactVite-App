@@ -13,7 +13,22 @@ const useUser = () => {
         const result = await fetchData(url, options);
         return result;
     };
-    return {getUserByToken};
+    
+    const postUser = async (inputs) => {
+        const options = {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(inputs),
+        };
+        const result = await fetchData(
+            import.meta.env.VITE_AUTH_API + '/users',
+            options,
+        );
+        return result;
+    };
+    return {getUserByToken, postUser};
 };
 
 const useMedia = () => {

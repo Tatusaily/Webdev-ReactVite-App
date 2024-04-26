@@ -4,5 +4,5 @@ import react from '@vitejs/plugin-react-swc'
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: '/~tatusail/2V_Webs/WebDevWeek6/hooks'
+  base: '/~tatusail/2V_Webs/WebDevWeek6/forms'
 })

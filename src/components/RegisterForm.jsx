@@ -1,8 +1,9 @@
 import { Navigate } from "react-router-dom";
-import { useAuthentication } from "../hooks/apiHooks";
+import {useUser, useAuthentication} from "../hooks/apiHooks";
 import useForm from "../hooks/formHooks";
 
 const RegisterForm = () => {
+    const {postUser} = useUser();
     const {postlogin} = useAuthentication();
 
     const initvals = {
@@ -12,12 +13,12 @@ const RegisterForm = () => {
 
     const doRegister = async () => {
         console.log(inputs);
-        const result = await postlogin(inputs);
-        localStorage.setItem("token", result.token);
-        console.log("RESULT", result)
-        console.log("TOKEN:", result.token);
+        const result = await postUser(inputs);
+        console.log("REG RESULT", result);
         if (result) {
-            // ei toimi
+            const result = await postlogin(inputs);
+            localStorage.setItem("token", result.token);
+            console.log("LOG RESULT", result);
             return <Navigate to="/" />;
         }
     };
@@ -31,36 +32,36 @@ const RegisterForm = () => {
             <h1>Register</h1>
             <form onSubmit={handleSubmit}>
                  <div>
-                     <label htmlFor="loginuser">Username</label>
+                     <label htmlFor="registeruser">Username</label>
                     <input className="text-black"
                         name="username"
                         type="text"
-                        id="loginuser"
+                        id="registeruser"
                         onChange={handleInputChange}
                         autoComplete="username"
                     />
                 </div>
                 <div>
-                    <label htmlFor="loginpassword">Password</label>
+                    <label htmlFor="registerpassword">Password</label>
                      <input className="text-black"
                         name="password"
                         type="password"
-                        id="loginpassword"
+                        id="registerpassword"
                         onChange={handleInputChange}
                         autoComplete="current-password"
                     />
                 </div>
                 <div>
-                    <label htmlFor="loginemail">Email</label>
+                    <label htmlFor="registeremail">Email</label>
                         <input className="text-black"
                             name="email"
                             type="email"
-                            id="loginemail"
+                            id="registeremail"
                             onChange={handleInputChange}
                             autoComplete="email"
                         />
                 </div>
-                <button type="submit">Login</button>
+                <button type="submit">Register</button>
             </form>
         </>
     );
