@@ -1,16 +1,27 @@
 import { Outlet, Link } from "react-router-dom";
+import { useUserContext } from '../hooks/contextHooks';
 
-const Layout = () => (
+import Button from "./UI/Button";
+
+
+
+const Layout = () => {
+    const {user, handleLogout, handleAutoLogin} = useUserContext();
+
+    return (
     <div>
         <header>
             <nav>
-                <ul>
-                    <Link to="/">Home</Link>
-                    <Link to="/profile">Profile</Link>
-                    <Link to="/upload">Upload</Link>
+                <Link to="/">Home</Link>
+                {user ? (
+                    <>
+                        <Link to="/profile">Profile</Link>
+                        <Link to="/upload">Upload</Link>
+                        <Button text="Log Out" onClick={handleLogout}></Button>
+                    </>
+                ) : (
                     <Link to="/login">Login</Link>
-                    <Link to="/logout">Logout</Link>
-                </ul>
+                )}
             </nav>
         </header>
         <main>
@@ -20,6 +31,7 @@ const Layout = () => (
             <p>Footer</p>
         </footer>
     </div>
-);
+    );
+};
 
 export default Layout;

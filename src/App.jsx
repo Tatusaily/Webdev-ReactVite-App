@@ -7,20 +7,23 @@ import Layout from './components/Layout';
 import Single from './views/Single';
 import Login from './views/Login';
 import Logout from './views/Logout';
+import { UserProvider } from './contexts/UserContext';
 
 const App = () => {
   return (
     <Router basename={import.meta.env.BASE_URL}>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/upload" element={<Upload />} />
-          <Route path="/single/" element={<Single />} />
-          <Route path="/login" element={<Login />} />  
-          <Route path='/logout' element={<Logout />} />
-        </Route>
-      </Routes>
+      <UserProvider>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Home />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/upload" element={<Upload />} />
+            <Route path="/single/" element={<Single />} />
+            <Route path="/login" element={<Login />} />  
+            <Route path='/logout' element={<Logout />} />
+          </Route>
+        </Routes>
+      </UserProvider>
     </Router>
   );
 };

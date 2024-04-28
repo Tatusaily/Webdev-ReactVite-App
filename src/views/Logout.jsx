@@ -1,14 +1,12 @@
-// imports
-import LoginForm from "../components/LoginForm";
-// import RegisterForm from "../components/RegisterForm";
+import { useUserContext } from "../hooks/contextHooks";
 
 const Logout = () => {
-    return (
-      <>
-        <LoginForm/>
-        {/* <RegisterForm/> */}
-      </>
-    );
+    const { handleLogout } = useUserContext();
+    try {
+        handleLogout();
+    } catch (e) {
+        alert(e.message);
+    }
   };
   
   export default Logout;
