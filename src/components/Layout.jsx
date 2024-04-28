@@ -6,13 +6,14 @@ import Button from "./UI/Button";
 
 
 const Layout = () => {
-    const {user, handleLogout, handleAutoLogin} = useUserContext();
+    const {user, handleLogout} = useUserContext();
 
     return (
     <div>
         <header>
             <nav>
-                <Link to="/">Home</Link>
+                <ul>
+                    <Link to="/">Home</Link>
                 {user ? (
                     <>
                         <Link to="/profile">Profile</Link>
@@ -22,6 +23,7 @@ const Layout = () => {
                 ) : (
                     <Link to="/login">Login</Link>
                 )}
+                </ul>
             </nav>
         </header>
         <main>

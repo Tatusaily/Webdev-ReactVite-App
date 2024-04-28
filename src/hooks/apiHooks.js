@@ -11,7 +11,7 @@ const useUser = () => {
         };
         const url = import.meta.env.VITE_AUTH_API + '/users/token';
         const result = await fetchData(url, options);
-        return result;
+        return result.user;
     };
     
     const postUser = async (inputs) => {
